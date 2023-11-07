@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script defer src="message.py"></script>
+<title>employee</title>
+</head>
+
+<body>
+	<!-- Main Div -->
+	<div align="center">
+		<!-- page headings -->
+		<h1>Employee Portal</h1>
+		<hr>
+		<h2>Database Search</h2>
+		<div>Enter a variable to search for in the database.</div><br>
+		<!-- Query Form -->
+		<form action="./employee.php" method="post">	
+			<!-- Query box -->
+			<label for="query">Query:</label>
+			<input type="text" id="user_query" name="user_query" required><br><br>
+			<!-- Radio Buttons -->
+			<!-- Name button -->
+			<input type="radio" id="queryname" name="dbsearch" value="name" required>
+			<label for="queryname">Name</label><br>
+			<!-- License number button -->
+			<input type="radio" id="querylicense" name="dbsearch" value="license">
+			<label for="querylicense">Driver License Number</label><br>
+			<!-- VIN button -->
+			<input type="radio" id="queryvin" name="dbsearch" value="vin">
+			<label for="queryvin">VIN</label><br><br>
+			<!-- Submit button -->
+			<input type="submit" value="Search">
+		</form>
+		<br><hr>
+		<!-- Print All -->
+		<h2>Print All</h2>
+		<div>Shows all data sorted by the following column.</div><br>
+		<!-- Print All Form -->
+		<form action="" method="post">
+			<!-- Name button -->
+			<input type="radio" id="allname" name="allsearch" value="name" required>
+			<label for="css">Name</label><br>
+			<!-- License number button -->
+			<input type="radio" id="alllicense" name="allsearch" value="license">
+			<label for="javascript">Driver License Number</label><br>
+			<!-- VIN button -->
+			<input type="radio" id="allvin" name="allsearch" value="vin">
+			<label for="html">VIN</label><br><br>
+			<!-- Submit button -->
+			<input type="submit" value="Search">
+		</form>
+		<br><hr>
+	</div>
+</body>
+</html>

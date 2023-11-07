@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script defer src="message.py"></script>
+<title>Landing Page</title>
+</head>
+
+<body>
+	<!--Main Div for page-->
+	<div align="center"> 
+		<h1>Landing Page</h1>
+		<!--Link to register-->
+		<div>New user? Register <a href="./register">here</a></div>
+		<br>
+		<!-- Form for login -->
+		<form method="post" action="/setCookie">
+			<!-- Username Box -->
+			<label for="username">Username:</label>
+			<input type="text" id="username" name="username" required><br><br>
+			<!-- Password Box -->
+			<label for="password">Password:</label>
+			<input type="text" id="password" name="password" required><br><br>
+			<!-- Submit Button -->
+			<a href=# id=RegisterButton><button type="submit" class="btn btn-default" name="loginButton">Login</button></a>
+		</form><br>
+	</div>
+    
+    <script>
+            $('a#loginButton').click(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "/message.py",
+                    data: {
+                        id: $(this).val()
+                    },
+                    success: function login(result) {
+                        print("Successful test"); //return necessary data once we figure out what will be returned
+                    },
+                    error: function(result) {
+                        print("Failed test"); //fail message
+                    }
+                });
+            });
+        </script>
+</body>
+</html>

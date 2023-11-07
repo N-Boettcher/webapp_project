@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+    <!--Metadata-->
+    <head>
+     <meta charset="UTF-8">
+     <meta name="User Page">
+     <meta description="This is the user page for the website.">
+     <script defer src="message.py"></script>
+     <!--Remove line break after header tags-->
+     <style>
+         h3 {display: inline;} 
+         h4 {display: inline;}
+         form {display: inline;}
+     </style>
+    </head>
+    <body style="text-align: center;">
+        <h1>Welcome User!</h1>
+        <!--User Information
+        <h2><u>Car information:</u></h2>
+        <h3>Make: </h3><form name="userMake">Example</form></p>
+        <h3>Model: </h3><form name="userModel">Example</form></p>
+        <h3>Year: </h3><form name="userYear">Example</form></p>
+        <h3>Color: </h3><form name="userColor">Example</form></p>
+        <br><hr><br>-->
+        
+        <!--Actions user can take-->
+        <h2><u>Actions:</u></h2>
+        
+        <form name="View Info" action="" method="post">
+            <a href=# id=infoButton><button class="btn btn-default" name="viewButton">View Info</button></a><br><br> <!--Return the user's info when the button is clicked by calling the python function user_info-->
+        </form>
+        
+        <u><h3>{{ dynamic_text }}</h3></u></p>
+        <!--Form creation to upload driver info-->
+        <form name="upload" action="" method='POST'>
+            <!--Label for the input box-->
+            <b><label for="fname">First name:</label></b><br>
+            <!--Input box-->
+            <input type="text" id="fname" name="fname" required></p>
+            <b><label for="lname">Last name:</label></b><br>
+            <input type="text" id="lname" name="lname" required></p>
+            <b><label for="DLN">Driver's License Number:</label></b><br>
+            <input type="text" id="DLN" name="DLN" required></p>
+            <b><label for="Address">Address:</label></b><br>
+            <input type="text" id="Address" name="Address" required></p>
+        <a href=# if=UploadInformation><button type="submit" name="uploadButton">Submit</button></a><br>
+        </form>
+        <br>
+
+        <!--Transfer car info-->
+        <h3><u>Transfer car info:</u></h3></p>
+        <!--Old owner information-->
+        <form name="TransferInformation" action="" method="post">
+        <!--New owner information-->
+        <b>VIN of car being transfered:</b><br><input type="text" name="transferVIN" required><br><br>
+        <h4><u>Car will be transferred to:</u></h4></p>
+        <b>First Name:</b><br><input type="text" name="New_fname" required><br>
+        <b>Last Name:</b><br><input type="text" name="New_lname" required><br>
+        <b>Address:</b><br><input type="text" name="New_Address" required><br>
+        <b>Driver's License Number:</b><br><input type="text" name="New_DLN" required><br>
+        <b>VIN of car being transferred:</b><br><input type="text" name="transferVIN" required></p>
+        <a href=# id=TransferButton><button type="submit" class="btn btn-default" name="transferButton">Submit</button></a>
+        </form>
+        <br><br>
+
+        <!--Add a button and call function to make register form-->
+        <button name="registerForm" onclick="formFunction()">Register new car</button>
+        <p id="register"></p>
+
+        <!--Add title when registration is clicked-->
+        <p id="header"></p>
+
+        <!--Script to add form when the register_new_car button is pushed-->
+        <script>                    
+                //Form prints where the id "register" is located within the HTML code
+                var variable = document.getElementById("register");
+
+                //Print title where the id "header" is located within the HTML code
+                var header = document.getElementById("header");
+
+                //create br
+                var br = document.createElement("br");
+                function formFunction() {
+                    //Header text
+                    header.innerHTML="<b>Register Information</b>";
+
+                    //Creates form object
+                    var form = document.createElement("form");
+
+                    //Form name
+                    form.setAttribute("name", "registerForm");
+
+                    //Form method
+                    form.setAttribute("method", "POST");
+
+                    //Form action (left blank)
+                    form.setAttribute("action", "");
+
+                    //input for VIN
+                    var vin = document.createElement("input");
+                    vin.setAttribute("type", "text");
+                    vin.setAttribute("name", "VIN");
+                    vin.setAttribute("placeholder", "VIN");
+                    vin.setAttribute("size", "30");
+                    vin.setAttribute("required", "True");
+
+                    //input for make
+                    var make = document.createElement("input");
+                    make.setAttribute("type", "text");
+                    make.setAttribute("name", "Make");
+                    make.setAttribute("placeholder", "Make");
+                    make.setAttribute("size", "30");
+                    make.setAttribute("required", "True");
+
+                    //input for model
+                    var model = document.createElement("input");
+                    model.setAttribute("type", "text");
+                    model.setAttribute("name", "Model");
+                    model.setAttribute("placeholder", "Model");
+                    model.setAttribute("size", "30");
+                    model.setAttribute("required", "True");
+
+                    //input for color
+                    var color = document.createElement("input");
+                    color.setAttribute("type", "text");
+                    color.setAttribute("name", "Color");
+                    color.setAttribute("placeholder", "Color");
+                    color.setAttribute("size", "30");
+                    color.setAttribute("required", "True");
+
+                    //input for owner's name
+                    var owner_fname = document.createElement("input");
+                    owner_fname.setAttribute("type", "text");
+                    owner_fname.setAttribute("name", "Owner_First_Name");
+                    owner_fname.setAttribute("placeholder", "Owner's First Name");
+                    owner_fname.setAttribute("size", "30");
+                    owner_fname.setAttribute("required", "True");
+                    
+                    //input for owner's last name
+                    var owner_lname = document.createElement("input");
+                    owner_lname.setAttribute("type", "text");
+                    owner_lname.setAttribute("name", "Owner_Last_Name");
+                    owner_lname.setAttribute("placeholder", "Owner's Last Name");
+                    owner_lname.setAttribute("size", "30");
+                    owner_lname.setAttribute("required", "True");
+                    
+                    //input for Owner's Driver's License Number
+                    var owner_license_number = document.createElement("input");
+                    owner_license_number.setAttribute("type", "text");
+                    owner_license_number.setAttribute("name", "Owner_License_Number");
+                    owner_license_number.setAttribute("placeholder", "Owner's Driver's License Number");
+                    owner_license_number.setAttribute("size", "30");
+                    owner_license_number.setAttribute("required", "True");
+
+                    //submit button
+                    var submit = document.createElement("input");
+                    submit.setAttribute("type", "submit");
+                    submit.setAttribute("name", "submitButton");
+                    submit.setAttribute("value", "Submit new car");
+
+                    //Append all fields to the form
+                    form.appendChild(vin);
+                    form.appendChild(br.cloneNode()); //line break (same as <br>)
+                    form.appendChild(make);
+                    form.appendChild(br.cloneNode());
+                    form.appendChild(model);
+                    form.appendChild(br.cloneNode());
+                    form.appendChild(color);
+                    form.appendChild(br.cloneNode());
+                    form.appendChild(owner_fname);
+                    form.appendChild(br.cloneNode())
+                    form.appendChild(owner_lname);
+                    form.appendChild(br.cloneNode());
+                    form.appendChild(owner_license_number);
+                    form.appendChild(br.cloneNode());
+                    form.appendChild(submit);
+                    form.appendChild(br.cloneNode());
+                    form.appendChild(submit);
+                    form.appendChild(br.cloneNode());
+                    form.appendChild(br.cloneNode());
+                    document.getElementsByTagName("body")[0].appendChild(form); //Add to the HTML body tag wherever the next available spot is
+                }
+        </script>
+        
+        <!--I'm not sure if the following implementations will work properly but this is what I have right now-->
+
+        <!--
+        JavaScript to view user info: Potential implementations
+        First Implementation:
+        <script src="api.py" type="text/javascript">
+            $(function() {
+                $('a#infoButton').on('click'), function(n) { //when the button is pressed
+                    n.preventDefault() //do not take default action and not do anything when clicked
+                    $.getJSON('/user_page/view_info', //ajax request
+                        function view_info(data) { //calls the function upload_driver_info
+                        //I'm not sure if this is supposed to have something in it, but I think you need to print the return value?
+                        let x = JSON.stringify(data);
+                        console.log(x);
+                        });
+                    return false; //ajax request failed
+                });
+            });
+        </script>
+        -->
+        
+        <!--Second implementation-->
+        <script>
+            $('a#infoButton').click(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "/message.py",
+                    data: {
+                        id: $(this).val()
+                    },
+                    success: function view_info(result) {
+                        print("Successful test"); //return necessary data once we figure out what will be returned
+                    },
+                    error: function(result) {
+                        print("Failed test"); //fail message
+                    }
+                });
+            });
+        </script>
+        
+        <!--JavaScript to transfer car info: Potential implementations
+        First Implementation
+        <script src="api.py" type="text/javascript">
+            $(function() {
+                $('a#transferButton').on('click'), function(n) { //when the button is pressed
+                    n.preventDefault() //do not take default action and not do anything when clicked
+                    $.getJSON('/user_page/transfer_car_info', //ajax request
+                        function transfer_car_info(data) { //calls the function transfer_car_info
+                        //I'm not sure if this is supposed to have something in it, but I think you need to print the return value?
+                            let x = JSON.stringify(data); 
+                            console.log(x);
+                        });
+                    return false; //ajax request failed
+                });
+            });
+        </script>
+        -->
+
+        <!--Second implementation-->
+        <script>
+            $('a#transferButton').click(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "/message.py",
+                    data: {
+                        id: $(this).val()
+                    },
+                    success: function transfer_car_info(result) {
+                        print("Successful test"); //return necessary data once we figure out what will be returned
+                    },
+                    error: function(result) {
+                        print("Failed test"); //fail message
+                    }
+                });
+            });
+        </script>
+        
+
+        <!--JavaScript to register new car: Potential implementations
+        First implementation
+        <script src="api.py" type="text/javascript">
+            $(function() {
+                $('submitButton').on('click'), function(n) { //when the button is pressed
+                    n.preventDefault() //do not take default action and not do anything when clicked
+                    $.getJSON('/user_page/register_new_car', //ajax request
+                        function register_new_car(data) { //calls the function register_new_car
+                            //I'm not sure if this is supposed to have something in it, but I think you need to print the return value?
+                            let x = JSON.stringify(data);
+                            console.log(x);
+                        });
+                    return false; //ajax request failed
+                });
+            });
+        </script>
+        -->
+    
+        <!--Second implementation-->
+        <script>
+            $('a#submitButton').click(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "/message.py",
+                    data: {
+                        id: $(this).val()
+                    },
+                    success: function register_new_car(result) {
+                        print("Successful test"); //return necessary data once we figure out what will be returned
+                    },
+                    error: function(result) {
+                        print("Failed test"); //fail message
+                    }
+                });
+            });
+        </script>
+
+        <!--JavaScript to upload driver info: Potential implementations
+        First implementation
+        <script src="api.py" type="text/javascript">
+            $(function() {
+                $('uploadButton').on('click'), function(n) { //when the button is pressed
+                    n.preventDefault() //do not take default action and not do anything when clicked
+                    $.getJSON('/user_page/upload_driver_info', //ajax request
+                        function upload_driver_info(data) { //calls the function upload_driver_info
+                            //I'm not sure if this is supposed to have something in it, but I think you need to print the return value?
+                            let x = JSON.stringify(data);
+                            console.log(x);
+                        });
+                    return false; //ajax request failed
+                });
+            });
+        -->
+
+        <!--Second implementation-->
+        <script>
+            $('a#uploadButton').click(function(e) {
+                e.preventDefault();
+                $.ajax({
+                    type: "POST",
+                    url: "/message.py",
+                    data: {
+                        id: $(this).val()
+                    },
+                    success: function upload_driver_info(result) {
+                        print("Successful test"); //return necessary data once we figure out what will be returned
+                    },
+                    error: function(result) {
+                        print("Failed test"); //fail message
+                    }
+                });
+            });
+        </script>
+        </script>
+    </body>
+</html>
