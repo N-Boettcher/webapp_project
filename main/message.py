@@ -137,9 +137,8 @@ def register():
             return "Account cannot be created."
         else:
             login_type = "d" # Employee logins are predetermined
-            name = username
             passwd = password
-            create_new_account(login_type, name, passwd,[DLN,address,name])
+            create_new_account(login_type, username, passwd,[DLN,address,name])
             print("Account has been successfully created!")
             return redirect(url_for('user_page'))
     return render_template('register.html')
