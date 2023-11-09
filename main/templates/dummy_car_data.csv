@@ -1,1 +1,6 @@
-,DLN,State,Address
+VIN,Model,Make,Year,Color,Owner_fname,Owner_lname,Owner DLN
+4Y1SL65848Z411439, Camry, Toyota,2012, Black, Alice, Johnson, DL001
+4Y1SL65848Z411440, Camry, Toyota,2013, White, John, Johnson, DL002
+4Y1SL65848Z411441, Camry, Toyota,2014, Blue, Charlie, Brown, DL003
+4Y1SL65848Z411442, Camry, Toyota,2015, Green, David, Wilson, DL004
+4Y1SL65848Z411443, Versa, Nissan,2016, Gray, Eva, Adams, DL005
